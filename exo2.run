@@ -1,0 +1,21 @@
+# Reset the AMPL enviroment
+reset;
+
+#load the model
+model exo2.mod;
+
+#load the data 
+data exo2.dat;
+
+#display the problem formulation
+expand cout_total;
+
+#change the solver (optional)
+option solver cplex;
+
+#solve
+solve;
+
+#show results
+display Usine_Fournit, Depots_Fournit, cout_total, agr_ouv_fer;
+

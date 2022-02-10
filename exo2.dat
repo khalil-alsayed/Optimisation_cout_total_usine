@@ -1,0 +1,37 @@
+data;
+
+set Usine := Liverpool Brighton;
+set Depots := Newcastle Birmingham Londres Exeter Bristol Northampton;
+set Depots_Ouvrir_Fermer := Birmingham Newcastle Exeter Bristol Northampton;
+set Clients := C1 C2 C3 C4 C5 C6;
+
+#------------------------------------exo1-exo4----------------------------------------------------------------------------------------
+#set Usine_ne_livre := (Newcastle, Brighton) (C2, Liverpool) (C2, Brighton) (C3, Brighton) (C4, Brighton) (C5, Brighton) (C5, Liverpool) (C6, Brighton);
+#set Depots_ne_livre := (C1, Newcastle) (C1, Londres) (C1, Exeter) (C2, Exeter) (C4, Londres) (C5, Newcastle) (C6, Birmingham) (C4, Bristol) (C1, Northampton) (C3, Northampton);
+
+#---------------------------------------------exo3--------------------------------------------------------------------------------------------------------------------------------------------
+set Usine_ne_livre := (Newcastle, Brighton) (C2, Liverpool) (C2, Brighton) (C3, Brighton) (C4, Brighton) (C5, Brighton) (C5, Liverpool) (C6, Brighton) (C1, Brighton) (C6, Liverpool) ;
+set Depots_ne_livre := (C1, Newcastle) (C1, Londres) (C1, Exeter) (C2, Exeter) (C4, Londres) (C5, Newcastle) (C6, Birmingham) (C4, Bristol) (C1, Northampton) (C3, Northampton) (C1, Birmingham) (C2, Birmingham) (C2, Londres) (C6, Newcastle);
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+param Couts_Distribution: Liverpool  Brighton  Newcastle  Birmingham  Londres  Exeter  Bristol  Northampton :=
+               Newcastle  0.5        0         0          0           0        0       0        0
+               Birmingham 0.5        0.3       0          0           0        0       0        0
+               Londres    1          0.5       0          0           0        0       0        0
+               Exeter     0.2        0.2       0          0           0        0       0        0
+               Bristol    0.6        0.4       0          0           0        0       0        0
+              Northampton 0.4        0.3       0          0           0        0       0        0
+               C1         1          2         0          1           0        0       1.2      0
+               C2         0          0         1.5        0.5         1.5      0       0.6      0.4
+               C3         1.5        0         0.5        0.5         2        0.2     0.5      0
+               C4         2          0         1.5        1           0        1.5     0        0.5
+               C5         0          0         0          0.5         0.5      0.5     0.3      0.6
+               C6         1          0         1          0           1.5      1.5     0.8      0.9;
+  
+
+
+param Capacite_Usine := Liverpool 150000  Brighton 200000;
+param Debit_Depots := Newcastle 70000  Birmingham 50000  Londres 100000  Exeter 40000  Bristol 30000  Northampton 25000;
+param Besoins_Clients := C1 50000  C2 10000  C3 40000  C4 35000  C5 60000  C6 20000;
+param Cout_Occasionnees := Birmingham 3000  Newcastle 10000  Exeter 5000  Bristol 12000  Northampton 4000;
+
